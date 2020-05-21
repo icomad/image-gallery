@@ -14,7 +14,9 @@
 		<div th:replace="fragments/navbar :: navbar">Navbar here</div>
 	</header>
 	<main class="bg-red-400">
-		<div layout:fragment="content" th:remove="tag"></div>
+		<div class="container mx-auto">
+			<div layout:fragment="content" th:remove="tag"></div>
+		</div>
 	</main>
 
 	<th:block layout:fragment="script"></th:block>

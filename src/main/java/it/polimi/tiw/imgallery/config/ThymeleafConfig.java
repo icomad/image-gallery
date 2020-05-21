@@ -1,5 +1,6 @@
 package it.polimi.tiw.imgallery.config;
 
+import it.polimi.tiw.imgallery.utils.MultiPathMessageResolver;
 import it.polimi.tiw.imgallery.utils.TemplateEngineRepo;
 import nz.net.ultraq.thymeleaf.LayoutDialect;
 import org.thymeleaf.TemplateEngine;
@@ -29,6 +30,7 @@ public class ThymeleafConfig implements ServletContextListener,
         this.templateEngine = new TemplateEngine();
         templateEngine.setTemplateResolver(resolveTemplate(sc));
         templateEngine.addDialect(new LayoutDialect());
+        templateEngine.setMessageResolver(new MultiPathMessageResolver(sc, "templates/locale"));
         return this.templateEngine;
     }
 
