@@ -22,7 +22,6 @@ public class ThymeleafConfig implements ServletContextListener,
 
     private TemplateEngine templateEngine;
 
-    // Public constructor is required by servlet spec
     public ThymeleafConfig() {
     }
 
@@ -44,19 +43,12 @@ public class ThymeleafConfig implements ServletContextListener,
         return templateResolver;
     }
 
-    // -------------------------------------------------------
-    // ServletContextListener implementation
-    // -------------------------------------------------------
     public void contextInitialized(ServletContextEvent sce) {
         this.templateEngine = createTemplateEngine(sce.getServletContext());
         TemplateEngineRepo.storeTemplateEngine(sce.getServletContext(), this.templateEngine);
     }
 
     public void contextDestroyed(ServletContextEvent sce) {
-      /* This method is invoked when the Servlet Context 
-         (the Web application) is undeployed or 
-         Application Server shuts down.
-      */
         this.templateEngine.clearDialects();
         this.templateEngine.clearTemplateCache();
         this.templateEngine = null;
