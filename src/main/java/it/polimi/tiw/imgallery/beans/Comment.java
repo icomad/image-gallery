@@ -1,4 +1,4 @@
-package it.polimi.tiw.phgallery.beans;
+package it.polimi.tiw.imgallery.beans;
 
 public class Comment {
     private int id;

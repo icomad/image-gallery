@@ -5,14 +5,14 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>it.polimi.tiw</groupId>
-  <artifactId>tiw-exam</artifactId>
+  <artifactId>image-gallery</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>war</packaging>
 
-  <name>Photo Gallery</name>
+  <name>Image Gallery</name>
   <description>Maven Webapp For TIW Exam</description>
   <!-- FIXME change it to the project's website -->
-  <url>http://federicomadaffari.me/photo-gallery</url>
+  <url>http://federicomadaffari.me/image-gallery</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -45,7 +45,7 @@
   </dependencies>
 
   <build>
-    <finalName>photo-gallery</finalName>
+    <finalName>image-gallery</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
         <plugin>

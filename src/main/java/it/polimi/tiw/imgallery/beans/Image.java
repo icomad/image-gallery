@@ -1,18 +1,22 @@
-package it.polimi.tiw.phgallery.beans;
+package it.polimi.tiw.imgallery.beans;
 
 import java.util.Date;
 
-public class Album {
+public class Image {
     private int id;
     private String title;
+    private String description;
+    private String path;
     private Date createdAt;
     private int userId;
 
-    public Album() {}
+    public Image() { }
 
-    public Album(int id, String title, Date createdAt, int userId) {
+    public Image(int id, String title, String description, String path, Date createdAt, int userId) {
         this.id = id;
         this.title = title;
+        this.description = description;
+        this.path = path;
         this.createdAt = createdAt;
         this.userId = userId;
     }
@@ -31,6 +35,22 @@ public class Album {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
     }
 
     public Date getCreatedAt() {
