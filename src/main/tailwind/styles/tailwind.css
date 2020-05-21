@@ -2,4 +2,26 @@
 
 @tailwind components;
 
+.header{
+    @apply w-full p-1 bg-blue-600 text-gray-200;
+}
+
+.transition-default{
+    transition: background-color .4s ease, color .4s ease;
+}
+
+.brand-logo{
+    @apply text-xl rounded p-2 transition-default;
+}
+.brand-logo:hover{
+    @apply bg-blue-800;
+}
+
+.btn{
+    @apply p-2 rounded transition-default;
+}
+.btn.btn-blue:hover{
+    @apply bg-blue-800;
+}
+
 @tailwind utilities;

@@ -9,16 +9,17 @@
 	<link type="text/css" media="all" rel="stylesheet" th:href="@{/resources/styles/main.css}"/>
 </head>
 
-<body>
-	<header class="w-full bg-blue-600 text-gray-200">
-		<div th:replace="fragments/navbar :: navbar">Navbar here</div>
-	</header>
-	<main class="bg-red-400">
+<body class="w-screen min-h-screen overflow-x-hidden flex flex-col">
+	<div th:replace="fragments/navbar :: navbar">Navbar here</div>
+	<main class="bg-gray-100 flex-grow">
 		<div class="container mx-auto">
+			<div th:replace="fragments/error_message :: error_message">Error Message</div>
+			<div th:replace="fragments/success_message :: success_message">Success Message</div>
 			<div layout:fragment="content" th:remove="tag"></div>
 		</div>
 	</main>
 
+	<script th:src="@{/resources/js/main.js}"></script>
 	<th:block layout:fragment="script"></th:block>
 </body>
 

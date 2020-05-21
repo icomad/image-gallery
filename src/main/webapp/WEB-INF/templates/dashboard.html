@@ -3,11 +3,11 @@
 			xmlns:th="http://thymeleaf.org"
 			xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
 <head>
-	<title>Home</title>
+	<title>Dashboard</title>
 </head>
 <body>
 <div layout:fragment="content">
-	<h1>Hello there</h1>
+	<h1 th:text="${session.user.username}"></h1>
 </div>
 </body>
 </html>

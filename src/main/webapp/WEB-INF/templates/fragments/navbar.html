@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://thymeleaf.org">
 <body>
-	<header class="w-full p-2 bg-blue-600 text-gray-200">
-		<nav th:fragment="navbar">
+	<header th:fragment="navbar" class="header">
+		<nav>
 			<div class="container mx-auto">
 				<div class="w-full flex justify-between items-center">
-					<a th:href="@{/}" class="text-2xl">Image Gallery</a>
-					<div class="right">
-						<button class="rounded p-2" th:if="${session.user}"></button>
+					<a th:href="@{/}" class="brand-logo" th:text="#{brand}">Image Gallery</a>
+					<div class="flex-grow ml-6">
+						<a th:href="@{/dashboard}" class="btn btn-blue" th:if="${session.user}" th:text="#{dashboard}">Dashboard</a>
+					</div>
+					<div class="flex">
+						<a th:href="@{/signout}" class="btn btn-blue" th:if="${session.user}" th:text="#{signout}">Sign Out</a>
+						<a th:href="@{/signin}" class="btn btn-blue mr-3" th:unless="${session.user}" th:text="#{signin}">Sign In</a>
+						<a th:href="@{/signup}" class="btn btn-blue" th:unless="${session.user}" th:text="#{signup}">Sign Up</a>
 					</div>
 				</div>
 			</div>

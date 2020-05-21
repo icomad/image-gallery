@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("")
-public class IndexController extends HttpServlet {
+@WebServlet("/dashboard")
+public class DashboardController extends HttpServlet {
     private TemplateEngine templateEngine;
 
     @Override
@@ -26,6 +26,6 @@ public class IndexController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         var webContext = new WebContext(request, response, getServletContext(), request.getLocale());
-        this.templateEngine.process("index", webContext, response.getWriter());
+        this.templateEngine.process("dashboard", webContext, response.getWriter());
     }
 }

@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build:css": "postcss styles/tailwind.css -o ../webapp/resources/styles/main.css"
+    "build:css": "postcss styles/tailwind.css -o ../webapp/resources/styles/main.css",
+    "watch:css": "postcss styles/tailwind.css -o ../webapp/resources/styles/main.css --watch"
   },
   "license": "MIT",
   "dependencies": {

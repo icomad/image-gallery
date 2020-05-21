@@ -18,7 +18,7 @@ public class UserIsSignedFilter implements Filter {
         var contextPath = request.getServletContext().getContextPath();
         var redirectURL = contextPath + "/signin";
         if (session.isNew() || session.getAttribute("user") == null) {
-            request.setAttribute("flash.error", "You have to be signed in to view the page!");
+            request.setAttribute("flash.error", "mustSignIn");
             response.sendRedirect(redirectURL);
             return;
         }

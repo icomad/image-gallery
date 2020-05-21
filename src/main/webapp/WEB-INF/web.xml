@@ -28,18 +28,18 @@
   </filter-mapping>
   <filter-mapping>
     <filter-name>User Is Signed</filter-name>
-    <url-pattern>/home</url-pattern>
+    <url-pattern>/dashboard</url-pattern>
   </filter-mapping>
   <filter-mapping>
     <filter-name>User Is Signed</filter-name>
-    <url-pattern>/album</url-pattern>
+    <url-pattern>/albums</url-pattern>
   </filter-mapping>
   <filter-mapping>
     <filter-name>User Is Signed</filter-name>
-    <url-pattern>/image</url-pattern>
+    <url-pattern>/images</url-pattern>
   </filter-mapping>
   <filter-mapping>
     <filter-name>User Is Signed</filter-name>
-    <url-pattern>/comment</url-pattern>
+    <url-pattern>/comments</url-pattern>
   </filter-mapping>
 </web-app>
