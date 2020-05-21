@@ -10,7 +10,7 @@
             username="icomad"
             password="w9MBzF62"
             driverClassName="com.mysql.cj.jdbc.Driver"
-            url="jdbc:mysql://localhost:3306/image-gallery"
+            url="jdbc:mysql://localhost:3306/image_gallery"
             closeMethod="close"
             removeAbandoned="true"
             removeAbandonedTimeout="60"

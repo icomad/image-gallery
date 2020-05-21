@@ -1,5 +1,8 @@
 package it.polimi.tiw.imgallery.controllers;
 
+import it.polimi.tiw.imgallery.utils.TemplateEngineRepo;
+import org.thymeleaf.TemplateEngine;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +12,13 @@ import java.io.IOException;
 
 @WebServlet("/")
 public class IndexController extends HttpServlet {
+    private TemplateEngine templateEngine;
+
+    @Override
+    public void init() throws ServletException {
+        this.templateEngine = TemplateEngineRepo.getTemplateEngine(getServletContext());
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }

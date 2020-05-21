@@ -234,5 +234,6 @@ buildNumber.properties
 
 # client
 node_modules
+src/main/webapp/WEB-INF/node_modules
 
 # End of https://www.gitignore.io/api/java,maven,intellij,intellij+all,intellij+iml
