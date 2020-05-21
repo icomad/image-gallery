@@ -1,28 +1,13 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+<!doctype html>
+<html lang="en" layout:decorate="~{layouts/base}"
+			xmlns:th="http://thymeleaf.org"
+			xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
 <head>
-	<meta charset="UTF-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-	<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Image Gallery</title>
-	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-	<link type="text/css" media="all" rel="stylesheet" th:href="@{/resources/css/main.css}"/>
+	<title>Homepage</title>
 </head>
 <body>
-<main>
-	<section class="">
-		<div class="hero-head">
-			<div th:replace="fragments/navbar :: navbar">Navbar here</div>
-		</div>
-
-		<div class="hero-body">
-			<div class="container has-text-centered">
-				<div layout:fragment="content" th:remove="tag"></div>
-			</div>
-		</div>
-	</section>
-</main>
-
-<script src="../../../resources/js/main.js" th:src="@{/resources/js/main.js}"></script>
-<th:block layout:fragment="script"></th:block>
+<div layout:fragment="content">
+	<h1 class="text-3xl">Hello there</h1>
+</div>
 </body>
 </html>

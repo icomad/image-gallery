@@ -2,6 +2,7 @@ package it.polimi.tiw.imgallery.controllers;
 
 import it.polimi.tiw.imgallery.utils.TemplateEngineRepo;
 import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.WebContext;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/")
+@WebServlet("")
 public class IndexController extends HttpServlet {
     private TemplateEngine templateEngine;
 
@@ -24,6 +25,7 @@ public class IndexController extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        var webContext = new WebContext(request, response, getServletContext());
+        this.templateEngine.process("index", webContext, response.getWriter());
     }
 }

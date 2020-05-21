@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org" xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
+	<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Image Gallery</title>
+	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+	<link type="text/css" media="all" rel="stylesheet" th:href="@{/resources/styles/main.css}"/>
+</head>
+
+<body>
+	<header class="w-full bg-blue-600 text-gray-200">
+		<div th:replace="fragments/navbar :: navbar">Navbar here</div>
+	</header>
+	<main class="bg-red-400">
+		<div layout:fragment="content" th:remove="tag"></div>
+	</main>
+
+	<th:block layout:fragment="script"></th:block>
+</body>
+
+</html>
