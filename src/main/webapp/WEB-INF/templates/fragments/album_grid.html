@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+</head>
+<body>
+<div class="mt-12 w-full flex justify-center" th:fragment="album_grid">
+	<div th:if="${not #lists.isEmpty(albums)}" class="w-full album-grid">
+		<a th:each="album : ${albums}" th:href="@{/albums(albumId=${album.id})}">
+			<div class="cursor-pointer shadow-lg flex flex-col p-2 rounded items-stretch bg-white text-gray-800 transition-default hover:bg-blue-200">
+				<div class="border-b border-gray-800 p-2"><span class="font-bold" th:text="#{title}"></span>: <span th:text="${album.title}"></span></div>
+				<div class="border-b border-gray-800 p-2"><span class="font-bold" th:text="#{date}"></span>: <span th:text="${#dates.format(album.createdAt, 'dd MMMM yyyy')}"></span></div>
+			</div>
+		</a>
+	</div>
+	<div th:unless="${not #lists.isEmpty(albums)}" class="rounded shadow p-4 bg-yellow-500 text-gray-800 flex justify-center items-center" th:text="#{noAlbum}"></div>
+</div>
+</body>
+</html>

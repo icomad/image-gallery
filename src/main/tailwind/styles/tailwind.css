@@ -10,6 +10,12 @@
     transition: background-color .4s ease, color .4s ease;
 }
 
+.album-grid{
+    display: grid;
+    grid-gap: .5rem;
+    grid-template-columns: repeat(auto-fit, minmax(225px, .25fr));
+}
+
 .brand-logo{
     @apply text-xl rounded p-2 transition-default;
 }

@@ -7,7 +7,8 @@
 </head>
 <body>
 <div layout:fragment="content">
-	<h1 th:text="${session.user.username}"></h1>
+	<div th:replace="fragments/add_album_form :: add_album_form">Add Album Form</div>
+	<div th:replace="fragments/album_grid :: album_grid">Album Grid</div>
 </div>
 </body>
 </html>
