@@ -3,7 +3,7 @@
 <head>
 </head>
 <body>
-<div class="mt-12 w-full flex justify-center" th:fragment="album_grid">
+<div class="my-12 w-full flex justify-center" th:fragment="album_grid">
 	<div th:if="${not #lists.isEmpty(albums)}" class="w-full album-grid">
 		<a th:each="album : ${albums}" th:href="@{/albums(albumId=${album.id},page=1)}">
 			<div class="cursor-pointer shadow-lg flex flex-col p-2 rounded items-stretch bg-white text-gray-800 transition-default hover:bg-blue-200">

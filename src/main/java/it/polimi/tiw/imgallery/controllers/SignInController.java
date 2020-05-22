@@ -54,7 +54,7 @@ public class SignInController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         var session = request.getSession();
         if (session != null && session.getAttribute("user") != null){
-            FlashScopeMessageHandler.handleErrorMessage(request, response, "alreadySignedIn", "/dashboard");
+            FlashScopeMessageHandler.handleErrorMessage(request, response, "alreadySigned", "/dashboard");
             return;
         }
 

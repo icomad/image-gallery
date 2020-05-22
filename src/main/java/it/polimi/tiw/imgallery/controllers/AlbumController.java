@@ -45,7 +45,7 @@ public class AlbumController extends HttpServlet {
                 FlashScopeMessageHandler.handleErrorMessage(request, response, "albumCreateError", "/dashboard");
                 return;
             }
-            FlashScopeMessageHandler.handleSuccessMessage(request, response, "albumCreated", "/albums?albumId=" + album.getId());
+            FlashScopeMessageHandler.handleSuccessMessage(request, response, "albumCreated", "/albums?albumId=" + album.getId() + "&page=1");
         } catch (SQLException e) {
             var error = DbErrorHandler.evaluateError(e.getErrorCode());
             FlashScopeMessageHandler.handleErrorMessage(request, response, error, "/dashboard");

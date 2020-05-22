@@ -7,6 +7,7 @@
 </head>
 <body>
 <div layout:fragment="content">
+	<div class="mt-4 w-full flex justify-center items-center text-3xl font-semibold text-blue-800" th:text="${album.title}"></div>
 	<div th:replace="fragments/add_image_form :: add_image_form">Add Image Form</div>
 	<div th:replace="fragments/image_grid :: image_grid">Image Grid</div>
 	<div th:replace="fragments/image_details :: image_details">Image Details</div>
