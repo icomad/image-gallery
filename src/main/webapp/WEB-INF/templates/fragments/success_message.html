@@ -3,13 +3,15 @@
 <head>
 </head>
 <body>
-<div th:if="${success}" class="mt-5 flex w-full justify-center items-center" th:fragment="success_message">
-	<div class="w-1/2 rounded bg-green-400 text-gray-200 flex flex-col justify-start items-stretch shadow">
-		<div class="p-2 rounded flex justify-between items-center bg-green-700">
+<div class="mt-5 flex w-full justify-center items-center" th:if="${success}" th:fragment="success_message">
+	<div class="w-full md:w-2/3" role="alert" >
+		<div class="bg-green-500 text-white font-bold rounded-t px-4 py-2 flex justify-between">
 			<span class="flex-grow font-bold" th:text="#{successHeader}"></span>
-			<button class="alert-delete transition-default hover:text-green-400"><i class="fas fa-times"></i></button>
+			<button class="alert-delete transition-default hover:text-green-800"><i class="fas fa-times"></i></button>
 		</div>
-		<div class="flex-grow px-2 py-4" th:text="#{${success}}"></div>
+		<div class="border border-t-0 border-green-400 rounded-b bg-green-100 px-4 py-3 text-green-700">
+			<p th:text="#{${success}}"></p>
+		</div>
 	</div>
 </div>
 </body>

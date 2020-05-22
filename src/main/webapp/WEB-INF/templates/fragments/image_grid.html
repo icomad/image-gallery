@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+</head>
+<body>
+<div class="mt-12 w-full flex justify-between items-center" th:fragment="image_grid">
+	<div th:if="${not #lists.isEmpty(images) and pageNum > 1}">
+		<a th:href="@{/albums(albumId=${album.id},page=${pageNum-1})}" class="text-gray-800 transition-default hover:text-blue-500">
+			<i class="fas fa-2x fa-chevron-circle-left"></i>
+		</a>
+	</div>
+	<div th:if="${not #lists.isEmpty(images)}" class="flex-grow image-grid mx-4">
+		<a th:each="image : ${images}" th:href="@{/albums(albumId=${album.id},page=${pageNum},imageId=${image.id})}">
+			<div class="cursor-pointer shadow-lg flex flex-col p-2 rounded items-center bg-white text-gray-800 transition-default hover:bg-blue-200">
+				<div class="rounded-full flex w-24 h-24 overflow-hidden">
+					<img th:src="@{|/resources/images/${image.path}|}" th:alt="${image.title}" style="object-fit: cover" />
+				</div>
+				<div class="border-b border-gray-800 text-gray-800 self-stretch text-center mt-2"><span class="font-bold" th:text="#{title}">:</span> [[${image.title}]]</div>
+			</div>
+		</a>
+	</div>
+	<div th:if="${not #lists.isEmpty(images) and pageNum < totalPages}">
+		<a th:href="@{/albums(albumId=${album.id},page=${pageNum+1})}" class="text-gray-800 transition-default hover:text-blue-500">
+			<i class="fas fa-2x fa-chevron-circle-right"></i>
+		</a>
+	</div>
+	<div th:unless="${not #lists.isEmpty(images)}" class="w-full rounded shadow p-4 bg-yellow-500 text-gray-800 flex justify-center items-center" th:text="#{noImage}"></div>
+</div>
+</body>
+</html>

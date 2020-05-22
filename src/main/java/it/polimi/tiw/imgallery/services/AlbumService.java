@@ -22,7 +22,7 @@ public class AlbumService {
         }
     }
 
-    private Album mapDBToBean(ResultSet rs) throws SQLException {
+    public Album mapDBToBean(ResultSet rs) throws SQLException {
         var album = new Album();
         album.setId(rs.getInt("id"));
         album.setTitle(rs.getString("title"));

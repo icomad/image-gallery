@@ -9,16 +9,18 @@ public class Image {
     private String path;
     private Date createdAt;
     private int userId;
+    private int albumId;
 
     public Image() { }
 
-    public Image(int id, String title, String description, String path, Date createdAt, int userId) {
+    public Image(int id, String title, String description, String path, Date createdAt, int userId, int albumId) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.path = path;
         this.createdAt = createdAt;
         this.userId = userId;
+        this.albumId = albumId;
     }
 
     public int getId() {
@@ -67,5 +69,13 @@ public class Image {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public int getAlbumId() {
+        return albumId;
+    }
+
+    public void setAlbumId(int albumId) {
+        this.albumId = albumId;
     }
 }

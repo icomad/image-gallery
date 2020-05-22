@@ -20,14 +20,14 @@ public class UserService {
         }
     }
 
-    private User mapDBToBean(ResultSet rs) throws SQLException {
+    public User mapDBToBean(ResultSet rs) throws SQLException {
         var user = new User();
         user.setId(rs.getInt("id"));
         user.setUsername(rs.getString("username"));
         return user;
     }
 
-    private User findOneById(int id) throws SQLException{
+    public User findOneById(int id) throws SQLException{
         var query = "SELECT * FROM users WHERE id = ?";
         try(var connection = this.ds.getConnection(); var pStatement = connection.prepareStatement(query);){
             pStatement.setInt(1, id);

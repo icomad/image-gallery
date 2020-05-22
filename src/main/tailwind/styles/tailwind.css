@@ -13,7 +13,18 @@
 .album-grid{
     display: grid;
     grid-gap: .5rem;
-    grid-template-columns: repeat(auto-fit, minmax(225px, .25fr));
+    place-content: center;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, .25fr));
+}
+
+.image-grid{
+    display: grid;
+    grid-gap: .5rem;
+    place-content: center;
+    justify-content: center;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    align-items: center;
 }
 
 .brand-logo{
@@ -27,7 +38,7 @@
     @apply p-2 rounded transition-default;
 }
 .btn.btn-blue:hover{
-    @apply bg-blue-800;
+    @apply bg-blue-800 text-gray-200;
 }
 
 @tailwind utilities;

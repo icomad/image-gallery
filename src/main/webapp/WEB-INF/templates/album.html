@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" layout:decorate="~{layouts/base}"
+			xmlns:th="http://thymeleaf.org"
+			xmlns:layout="http://ultraq.net.nz/thymeleaf/layout">
 <head>
-	<meta charset="UTF-8">
-	<title>Title</title>
+	<title>Album - [[${album.title}]]</title>
 </head>
 <body>
-
+<div layout:fragment="content">
+	<div th:replace="fragments/add_image_form :: add_image_form">Add Image Form</div>
+	<div th:replace="fragments/image_grid :: image_grid">Image Grid</div>
+	<div th:replace="fragments/image_details :: image_details">Image Details</div>
+</div>
 </body>
 </html>

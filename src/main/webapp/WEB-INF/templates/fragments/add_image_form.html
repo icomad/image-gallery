@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+</head>
+<body>
+<div class="mt-12 w-full flex justify-center" th:fragment="add_image_form">
+	<div class="rounded p-2 shadow-xl flex flex-col bg-blue-600">
+		<div class="text-xl border-b-2 border-gray-200 mb-4 py-1 px-8 text-gray-200" th:text="#{addImage}"></div>
+		<form th:action="@{/images}" method="post" class="flex flex-col" enctype="multipart/form-data">
+			<input type="hidden" name="albumId" th:value="${album.id}" required />
+			<input type="file" name="imageFile" th:placeholder="#{imageFile}" class="cursor-pointer rounded p-2 mb-2 text-gray-800 bg-white" required />
+			<input type="text" name="title" th:placeholder="#{imageTitle}" class="rounded p-2 mb-2" required />
+			<input type="text" name="description" th:placeholder="#{imageDescription}" class="rounded p-2 mb-2" required />
+			<input type="submit" class="bg-transparent text-gray-200 cursor-pointer outline-none btn btn-blue" th:value="#{confirm}" />
+		</form>
+	</div>
+</div>
+</body>
+</html>

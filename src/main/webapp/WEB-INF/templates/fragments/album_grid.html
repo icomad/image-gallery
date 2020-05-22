@@ -5,7 +5,7 @@
 <body>
 <div class="mt-12 w-full flex justify-center" th:fragment="album_grid">
 	<div th:if="${not #lists.isEmpty(albums)}" class="w-full album-grid">
-		<a th:each="album : ${albums}" th:href="@{/albums(albumId=${album.id})}">
+		<a th:each="album : ${albums}" th:href="@{/albums(albumId=${album.id},page=1)}">
 			<div class="cursor-pointer shadow-lg flex flex-col p-2 rounded items-stretch bg-white text-gray-800 transition-default hover:bg-blue-200">
 				<div class="border-b border-gray-800 p-2"><span class="font-bold" th:text="#{title}"></span>: <span th:text="${album.title}"></span></div>
 				<div class="border-b border-gray-800 p-2"><span class="font-bold" th:text="#{date}"></span>: <span th:text="${#dates.format(album.createdAt, 'dd MMMM yyyy')}"></span></div>

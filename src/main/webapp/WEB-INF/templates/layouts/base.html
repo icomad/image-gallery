@@ -6,10 +6,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover"/>
 	<title layout:title-pattern="$LAYOUT_TITLE - $CONTENT_TITLE">Image Gallery</title>
 	<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+	<link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,600;0,700;1,700&display=swap" rel="stylesheet">
 	<link type="text/css" media="all" rel="stylesheet" th:href="@{/resources/styles/main.css}"/>
 </head>
 
-<body class="w-screen min-h-screen overflow-x-hidden flex flex-col">
+<body class="w-screen min-h-screen overflow-x-hidden flex flex-col font-raleway">
 	<div th:replace="fragments/navbar :: navbar">Navbar here</div>
 	<main class="bg-gray-100 flex-grow">
 		<div class="container mx-auto">

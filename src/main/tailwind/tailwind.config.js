@@ -4,7 +4,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                inter: ['Inter', 'sans-serif']
+                raleway: ['Raleway', 'sans-serif']
             },
             inset: {
                 '1/2': '50%',
@@ -22,6 +22,8 @@ module.exports = {
                 '1/4': '25%',
                 '1/2': '50%',
                 '3/4': '75%',
+                '2/3': '66%',
+                '1/3': '33%',
                 screen: '100vh'
             },
             maxWidth: {
@@ -29,6 +31,8 @@ module.exports = {
                 '1/4': '25%',
                 '1/2': '50%',
                 '3/4': '75%',
+                '2/3': '66%',
+                '1/3': '33%',
                 screen: '100vw'
             }
         }

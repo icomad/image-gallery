@@ -1,7 +1,11 @@
 package it.polimi.tiw.imgallery.controllers;
 
+import it.polimi.tiw.imgallery.beans.Comment;
+import it.polimi.tiw.imgallery.beans.Image;
 import it.polimi.tiw.imgallery.beans.User;
 import it.polimi.tiw.imgallery.services.AlbumService;
+import it.polimi.tiw.imgallery.services.CommentService;
+import it.polimi.tiw.imgallery.services.ImageService;
 import it.polimi.tiw.imgallery.utils.DbErrorHandler;
 import it.polimi.tiw.imgallery.utils.FlashScopeMessageHandler;
 import it.polimi.tiw.imgallery.utils.TemplateEngineRepo;
@@ -29,7 +33,7 @@ public class AlbumController extends HttpServlet {
         var title = request.getParameter("title");
 
         if (title == null || title.isBlank()){
-            FlashScopeMessageHandler.handleErrorMessage(request, response, "", "/dashboard");
+            FlashScopeMessageHandler.handleErrorMessage(request, response, "fieldsRequired", "/dashboard");
             return;
         }
 
@@ -38,10 +42,10 @@ public class AlbumController extends HttpServlet {
         try {
             var album = albumService.create(title, user.getId());
             if (album == null){
-                FlashScopeMessageHandler.handleErrorMessage(request, response, "", "/dashboard");
+                FlashScopeMessageHandler.handleErrorMessage(request, response, "albumCreateError", "/dashboard");
                 return;
             }
-            FlashScopeMessageHandler.handleSuccessMessage(request, response, "", "/albums?albumId=" + album.getId());
+            FlashScopeMessageHandler.handleSuccessMessage(request, response, "albumCreated", "/albums?albumId=" + album.getId());
         } catch (SQLException e) {
             var error = DbErrorHandler.evaluateError(e.getErrorCode());
             FlashScopeMessageHandler.handleErrorMessage(request, response, error, "/dashboard");
@@ -50,27 +54,54 @@ public class AlbumController extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         var albumId = request.getParameter("albumId");
+        var page = request.getParameter("page");
+        var imageId = request.getParameter("imageId");
 
-        if (albumId==null || albumId.isBlank()){
+        if (albumId==null || albumId.isBlank() || page == null || page.isBlank()){
             FlashScopeMessageHandler.handleErrorMessage(request, response, "albumNotSelected", "/dashboard");
             return;
         }
 
         var webContext = new WebContext(request, response, getServletContext(), request.getLocale());
         var albumService = new AlbumService();
+        var imageService = new ImageService();
+        var commentService = new CommentService();
+        var pageSize = 5;
         try {
             var album = albumService.findOneById(Integer.parseInt(albumId));
             if (album == null){
-                FlashScopeMessageHandler.handleErrorMessage(request, response, "", "/dashboard");
+                FlashScopeMessageHandler.handleErrorMessage(request, response, "albumNotFound", "/dashboard");
                 return;
             }
+            var totalPages = imageService.getTotalPages(album.getId());
+            var pageNum = Integer.parseInt(page);
+            if (pageNum < 1) pageNum = 1;
+            if (pageNum > totalPages) pageNum = totalPages;
+            var start = pageNum > 1 ? pageSize * (pageNum-1) : 0;
+            var images = imageService.findAllByAlbum(album.getId(), start, pageSize);
+
+            if (imageId != null){
+                var image = imageService.findOneById(Integer.parseInt(imageId));
+                if (image == null){
+                    FlashScopeMessageHandler.handleErrorMessage(request, response, "imageNotFound", "/albums?albumId="+album.getId()+"&page="+pageNum);
+                    return;
+                }
+                var comments = commentService.findAllByImage(image.getId());
+                webContext.setVariable("comments", comments);
+                webContext.setVariable("image", image);
+            }
+
+            webContext.setVariable("pageNum", pageNum);
             webContext.setVariable("album", album);
+            webContext.setVariable("totalPages", totalPages);
+            webContext.setVariable("images", images);
+
             this.templateEngine.process("album", webContext, response.getWriter());
         } catch (SQLException e) {
             var error = DbErrorHandler.evaluateError(e.getErrorCode());
             FlashScopeMessageHandler.handleErrorMessage(request, response, error, "/dashboard");
         } catch (NumberFormatException e){
-            FlashScopeMessageHandler.handleErrorMessage(request, response, "Selected Wrong Album Id", "/dashboard");
+            FlashScopeMessageHandler.handleErrorMessage(request, response, "numberFormatError", "/dashboard");
         }
     }
 }
