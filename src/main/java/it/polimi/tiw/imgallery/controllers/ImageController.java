@@ -22,7 +22,7 @@ import java.util.Date;
 @MultipartConfig
 public class ImageController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        var dirPath = "/Users/icomad/Desktop/server_images/";
+        var dirPath = "/home/icomad/projects/image-gallery-static/";
         Part filePart = request.getPart("imageFile");
         var title = request.getParameter("title");
         var description = request.getParameter("description");
