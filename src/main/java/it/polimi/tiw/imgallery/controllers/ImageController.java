@@ -25,8 +25,8 @@ public class ImageController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        var catalinaHome = System.getenv("CATALINA_HOME");
-        var dirPath = catalinaHome + "/static/";
+        var resourcesPath = System.getProperty("static.resources");
+        var dirPath = resourcesPath + "/static/";
         Part filePart = request.getPart("imageFile");
         var title = request.getParameter("title");
         var description = request.getParameter("description");
