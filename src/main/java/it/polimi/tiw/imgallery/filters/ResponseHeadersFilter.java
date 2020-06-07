@@ -18,9 +18,14 @@ public class ResponseHeadersFilter implements Filter {
         var contextPath = request.getServletContext().getContextPath();
         if (!srcPath.startsWith(contextPath + "/resources")){
             response.setContentType("text/html;charset=UTF-8");
+            response.setCharacterEncoding("UTF-8");
             response.setHeader("Pragma", "no-cache");
             response.setHeader("Cache-Control", "no-cache");
             response.setDateHeader("Expires", 0);
+        }
+        if(request.getCharacterEncoding() == null)
+        {
+            request.setCharacterEncoding("UTF-8");
         }
         chain.doFilter(req, resp);
     }

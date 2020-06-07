@@ -9,7 +9,10 @@ import java.io.IOException;
 
 @WebServlet("/signout")
 public class SignOutController extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private static final long serialVersionUID = 1L;
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         this.doGet(request, response);
     }
 

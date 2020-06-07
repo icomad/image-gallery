@@ -236,4 +236,9 @@ buildNumber.properties
 node_modules
 src/main/tailwind/node_modules
 
+# VSCODE
+.classpath
+.project
+.settings/
+
 # End of https://www.gitignore.io/api/java,maven,intellij,intellij+all,intellij+iml

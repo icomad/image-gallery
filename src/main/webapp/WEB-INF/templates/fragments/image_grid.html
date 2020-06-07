@@ -13,7 +13,7 @@
 		<a th:each="image : ${images}" th:href="@{/albums(albumId=${album.id},page=${pageNum},imageId=${image.id})}">
 			<div class="cursor-pointer shadow-lg flex flex-col p-2 rounded items-center bg-white text-gray-800 transition-default hover:bg-blue-200">
 				<div class="rounded-full flex w-24 h-24 overflow-hidden">
-					<img th:src="@{|/resources/images/${image.path}|}" th:alt="${image.title}" style="object-fit: cover" />
+					<img th:src="@{|~/resources/images/${image.path}|}" th:alt="${image.title}" style="object-fit: cover" />
 				</div>
 				<div class="border-b border-gray-800 text-gray-800 self-stretch text-center mt-2"><span class="font-bold" th:text="#{title}">:</span> [[${image.title}]]</div>
 			</div>

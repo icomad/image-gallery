@@ -36,12 +36,12 @@ public class ThymeleafConfig implements ServletContextListener,
 
     private ITemplateResolver resolveTemplate(ServletContext sc){
         ServletContextTemplateResolver templateResolver = new ServletContextTemplateResolver(sc);
-        templateResolver.setCharacterEncoding("utf-8");
         templateResolver.setTemplateMode(TemplateMode.HTML);
         templateResolver.setPrefix("/WEB-INF/templates/");
         templateResolver.setSuffix(".html");
         templateResolver.setCacheTTLMs(3600000L);
         templateResolver.setCacheable(true);
+        templateResolver.setCharacterEncoding("UTF-8");
         return templateResolver;
     }
 

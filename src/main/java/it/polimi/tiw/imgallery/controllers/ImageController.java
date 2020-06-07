@@ -21,8 +21,12 @@ import java.util.Date;
 @WebServlet("/images")
 @MultipartConfig
 public class ImageController extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        var dirPath = "/home/icomad/projects/image-gallery-static/";
+    private static final long serialVersionUID = 1L;
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        var catalinaHome = System.getenv("CATALINA_HOME");
+        var dirPath = catalinaHome + "/static/";
         Part filePart = request.getPart("imageFile");
         var title = request.getParameter("title");
         var description = request.getParameter("description");

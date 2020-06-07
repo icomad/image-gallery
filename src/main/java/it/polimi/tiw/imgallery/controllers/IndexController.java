@@ -13,6 +13,7 @@ import java.io.IOException;
 
 @WebServlet("")
 public class IndexController extends HttpServlet {
+    private static final long serialVersionUID = 1L;
     private TemplateEngine templateEngine;
 
     @Override

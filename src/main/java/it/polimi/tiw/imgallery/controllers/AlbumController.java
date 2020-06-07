@@ -1,7 +1,5 @@
 package it.polimi.tiw.imgallery.controllers;
 
-import it.polimi.tiw.imgallery.beans.Comment;
-import it.polimi.tiw.imgallery.beans.Image;
 import it.polimi.tiw.imgallery.beans.User;
 import it.polimi.tiw.imgallery.services.AlbumService;
 import it.polimi.tiw.imgallery.services.CommentService;
@@ -22,6 +20,7 @@ import java.sql.SQLException;
 
 @WebServlet("/albums")
 public class AlbumController extends HttpServlet {
+    private static final long serialVersionUID = 1L;
     private TemplateEngine templateEngine;
 
     @Override

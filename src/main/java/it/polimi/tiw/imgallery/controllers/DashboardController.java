@@ -1,6 +1,5 @@
 package it.polimi.tiw.imgallery.controllers;
 
-import it.polimi.tiw.imgallery.beans.User;
 import it.polimi.tiw.imgallery.services.AlbumService;
 import it.polimi.tiw.imgallery.utils.DbErrorHandler;
 import it.polimi.tiw.imgallery.utils.FlashScopeMessageHandler;
@@ -18,6 +17,7 @@ import java.sql.SQLException;
 
 @WebServlet("/dashboard")
 public class DashboardController extends HttpServlet {
+    private static final long serialVersionUID = 1L;
     private TemplateEngine templateEngine;
 
     @Override

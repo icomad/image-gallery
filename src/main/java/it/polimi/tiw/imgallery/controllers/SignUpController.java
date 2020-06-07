@@ -17,6 +17,7 @@ import java.sql.SQLException;
 
 @WebServlet("/signup")
 public class SignUpController extends HttpServlet {
+    private static final long serialVersionUID = 1L;
     private TemplateEngine templateEngine;
 
     @Override

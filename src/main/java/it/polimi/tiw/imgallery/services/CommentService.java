@@ -1,7 +1,6 @@
 package it.polimi.tiw.imgallery.services;
 
 import it.polimi.tiw.imgallery.beans.Comment;
-import it.polimi.tiw.imgallery.beans.User;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;

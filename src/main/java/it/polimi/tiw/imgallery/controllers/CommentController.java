@@ -16,7 +16,10 @@ import java.sql.SQLException;
 
 @WebServlet("/comments")
 public class CommentController extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private static final long serialVersionUID = 1L;
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         var body = request.getParameter("body");
         var imageId = request.getParameter("imageId");
         var albumId = request.getParameter("albumId");
