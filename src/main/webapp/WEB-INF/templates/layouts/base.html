@@ -13,7 +13,7 @@
 <body class="min-h-screen overflow-x-hidden flex flex-col font-raleway">
 	<div th:replace="fragments/navbar :: navbar">Navbar here</div>
 	<main class="bg-gray-100 flex-grow">
-		<div class="container mx-auto">
+		<div class="container mx-auto p-2">
 			<div th:replace="fragments/error_message :: error_message">Error Message</div>
 			<div th:replace="fragments/success_message :: success_message">Success Message</div>
 			<div layout:fragment="content" th:remove="tag"></div>

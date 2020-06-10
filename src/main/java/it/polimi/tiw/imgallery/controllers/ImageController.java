@@ -5,6 +5,7 @@ import it.polimi.tiw.imgallery.services.AlbumService;
 import it.polimi.tiw.imgallery.services.ImageService;
 import it.polimi.tiw.imgallery.utils.DbErrorHandler;
 import it.polimi.tiw.imgallery.utils.FlashScopeMessageHandler;
+import net.coobird.thumbnailator.Thumbnails;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -73,8 +74,10 @@ public class ImageController extends HttpServlet {
         String uniqueId = Long.toString(new Date().getTime());
         String fileName = uniqueId + ogFileName;
         File targetFile = new File(dirPath + fileName);
-        try (OutputStream output = new FileOutputStream(targetFile); InputStream fileContent = filePart.getInputStream();) {
+        File thumbnailFile = new File(dirPath + "thumbnail_" + fileName);
+        try (OutputStream output = new FileOutputStream(targetFile); var thumbnail = new FileOutputStream(thumbnailFile); var thumbnailContent = filePart.getInputStream(); InputStream fileContent = filePart.getInputStream();) {
             fileContent.transferTo(output);
+            Thumbnails.of(thumbnailContent).size(200, 200).toOutputStream(thumbnail);
         }
         return fileName;
     }

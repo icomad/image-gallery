@@ -237,6 +237,7 @@ node_modules
 src/main/tailwind/node_modules
 
 # VSCODE
+.vscode/
 .classpath
 .project
 .settings/
